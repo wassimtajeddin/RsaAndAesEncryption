@@ -6,7 +6,7 @@ import java.util.Base64;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-public class AesEncryption {
+public class AESEncryption {
 
     private static final String ALGORITHM = "AES";
 

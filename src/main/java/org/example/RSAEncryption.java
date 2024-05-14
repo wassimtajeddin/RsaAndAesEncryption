@@ -6,7 +6,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import javax.crypto.Cipher;
 
-public class RsaEncryption {
+public class RSAEncryption {
 
     public static byte[] encrypt(String data, PublicKey publicKey) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
