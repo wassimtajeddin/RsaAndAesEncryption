@@ -8,21 +8,23 @@ import javax.crypto.Cipher;
 
 public class RSAEncryption {
 
+    private static final String ALGORITHM = "RSA";
+
     public static byte[] encrypt(String data, PublicKey publicKey) throws Exception {
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         return cipher.doFinal(data.getBytes());
     }
 
     public static String decrypt(byte[] encryptedData, PrivateKey privateKey) throws Exception {
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
         byte[] decryptedBytes = cipher.doFinal(encryptedData);
         return new String(decryptedBytes);
     }
 
     public static void main(String[] args) throws Exception {
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM);
         keyPairGenerator.initialize(2048);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         PublicKey publicKey = keyPair.getPublic();
